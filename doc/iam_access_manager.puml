@@ -1,0 +1,15 @@
+@startuml
+
+actor       User       as User
+participant FA as "Frontend Application"
+participant IAM as "IAM Service"
+database MDB as "MongoDB"
+
+User -> FA: Login(user/password)
+FA -> IAM: Login(user/password)
+IAM -> MDB: fetch user record
+IAM -> IAM: Validate user exists for the credentials
+IAM -> IAM: Generate JWT token
+IAM -> FA: Return JWT Token
+
+@enduml

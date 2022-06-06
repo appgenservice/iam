@@ -1,0 +1,15 @@
+@startuml
+
+actor       User       as User
+participant FA as "Frontend Application"
+participant AS as "Application Service"
+participant IAM as "IAM Service"
+database MDB as "MongoDB"
+
+
+User -> FA: Access App features
+FA -> AS: /app-endpoint (with JWT token)
+AS -> IAM: POST : /validate (with JWT token)
+IAM -> AS: authorities
+AS -> FA
+@enduml
