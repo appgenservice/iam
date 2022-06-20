@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${auth.login.path}")
     private String loginPath;
 
-    private final UserDetailsService userDetailsService;
+    private final DBUserDetailsService userDetailsService;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
